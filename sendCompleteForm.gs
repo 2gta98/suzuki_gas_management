@@ -10,7 +10,7 @@ function doPost(e) {
   var messageData = [];
   
   //返信用の情報
-  var CHANNEL_ACCESS_TOKEN = '{TOKEN}';
+  var CHANNEL_ACCESS_TOKEN = 'lH8HxSXqxXzhsj8zf/VWS2eDFh9Id5zwRdNNcxziHpqsgfTwRFElBTT3OyE1tPGwGWOXA6/4GvEoAcCPdB9JEB5OrZ42o+ezDlyqtdLh/MFMaVtDmbNFrxoml5ZrwLLo08qqeKkjWs1AvvkOsi8wqgdB04t89/1O/w1cDnyilFU=';
   var url = 'https://api.line.me/v2/bot/message/reply';  // 応答メッセージ用のAPI URL
   
   //ログの保存
@@ -27,7 +27,7 @@ function doPost(e) {
   var ss_sum = SpreadsheetApp.openById('1Q1JzHM6ravix6FtLPGZYUt4NYaDZAKGc49v6AJNK9sw');
   var sh_sum = ss_sum.getSheetByName('サマリー');
   var lastRow_sum = sh_sum.getLastRow();
-  var sumData = sh_cyl.getDataRange().getValues();
+  var sumData = sh_sum.getDataRange().getValues();
   
   var command = userMessage.split(' ');
   
@@ -74,11 +74,11 @@ function doPost(e) {
   else {
     for (var i=1; i<lastRow_sum; i++) {
       if (command[2] == sumData[i][12]) { // ユーザーメッセージとボンベ番号の一致
-        var url = createFormUrl(sumData[i]);
+        var formUrl = createFormUrl(sumData[i]);
       }
     }
     
-    var replyMessage = '以下のURLより完了報告を実施してください。\n\n' + url;
+    var replyMessage = '以下のURLより完了報告を実施してください。\n\n' + formUrl;
     
     var postData = {
       "replyToken": replyToken,
