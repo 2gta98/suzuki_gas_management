@@ -72,7 +72,7 @@ function doPost(e) {
   // ==================================
   else {
     for (var i=1; i<lastRow_sum; i++) {
-      if (command[2] == sumData[i][12]) { // ユーザーメッセージとボンベ番号の一致
+      if (command[2] == sumData[i][13]) {
         var formUrl = createFormUrl(sumData[i]);
       }
     }
