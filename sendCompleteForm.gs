@@ -23,7 +23,6 @@ function doPost(e) {
   messageData.push(userMessage);
   sh.appendRow(messageData);
   
-  // ボンベ番号の取得
   var ss_sum = SpreadsheetApp.openById('1Q1JzHM6ravix6FtLPGZYUt4NYaDZAKGc49v6AJNK9sw');
   var sh_sum = ss_sum.getSheetByName('サマリー');
   var lastRow_sum = sh_sum.getLastRow();
